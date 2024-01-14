@@ -13,7 +13,7 @@
     <script>
       const bc = new BroadcastChannel("broadcast_channel-1");
       bc.onmessage = (eventMessage) => {
-        console.log('eventMessage:', eventMessage);
+        console.log("eventMessage:", eventMessage);
         const data = eventMessage.data;
         if (data.type === "update_text") {
           document.getElementById("text").innerText = data.text;
