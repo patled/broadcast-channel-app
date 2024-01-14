@@ -1,0 +1,12 @@
+{
+  "name": "broadcast-channel-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

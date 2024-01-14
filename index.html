@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Broadcast</title>
+  </head>
+  <body>
+    <h1>Broadcast</h1>
+    <p id="text">Demo text</p>
+    <input type="text" id="input" />
+    <button onclick="broadcast()">send text</button>
+
+    <script>
+      const bc = new BroadcastChannel("broadcast_channel-1");
+      bc.onmessage = (eventMessage) => {
+        console.log('eventMessage:', eventMessage);
+        const data = eventMessage.data;
+        if (data.type === "update_text") {
+          document.getElementById("text").innerText = data.text;
+        }
+      };
+
+      function broadcast() {
+        const bc2 = new BroadcastChannel("broadcast_channel-1");
+        const input = document.getElementById("input");
+        bc2.postMessage({ type: "update_text", text: input.value });
+        input.value = "";
+      }
+    </script>
+  </body>
+</html>
